@@ -48,11 +48,11 @@ class ParseTokenMiddleware implements Middleware {
 
       req.tokenPayload = payload;
       return next();
-    } catch {
+    } catch (err) {
       return next(
         new HttpError(
           StatusCodes.UNAUTHORIZED,
-          'Invalid token',
+          (err as Error).message,
           'AuthenticateMiddleware',
         ),
       );

@@ -10,6 +10,12 @@ import { UserEntity } from '../user/user.entity.js';
 import { CreateOfferDto } from './dto/create-offer.dto.js';
 import { calculateAggregateRating } from '../../utils/rating.js';
 import { DocumentCollection } from '../../libs/rest/types/document-collection.enum.js';
+import * as mongoose from 'mongoose';
+
+class Coordinates {
+  lat!: number;
+  lng!: number;
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export interface OfferEntity extends defaultClasses.Base {}
@@ -35,13 +41,13 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({ type: String, required: true, trim: true })
   public previewUrl!: string;
 
-  @prop({ type: Array, required: true, default: [] })
-  public images!: string[];
+  @prop({ type: String, required: true, default: [] })
+  public images!: mongoose.Types.Array<string>;
 
   @prop({ type: Number, required: true })
   public rooms!: CreateOfferDto['rooms'];
 
-  @prop({ required: true })
+  @prop({ type: Coordinates, required: true })
   public coordinates!: CreateOfferDto['coordinates'];
 
   @prop({ type: Number, required: true })
@@ -63,6 +69,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   public guests!: CreateOfferDto['guests'];
 
   @prop({
+    type: mongoose.Schema.ObjectId,
     ref: UserEntity,
     required: true,
   })
@@ -71,8 +78,8 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({ type: Number, required: false })
   public commentsAmount: number = 0;
 
-  @prop({ type: Array, required: true, default: [] })
-  public usersRatings: number[] = [];
+  @prop({ type: Number, required: true, default: [] })
+  public usersRatings!: mongoose.Types.Array<number>;
 
   public get rating(): number {
     return calculateAggregateRating(this.usersRatings);

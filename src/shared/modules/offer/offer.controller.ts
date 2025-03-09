@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
 import { Response, Request } from 'express';
-
+import * as mongoose from 'mongoose';
 import { BaseController, HttpMethod } from '../../libs/rest/index.js';
 import { Logger } from '../../libs/logger/index.js';
 import { Component } from '../../models/index.js';
@@ -148,9 +148,13 @@ export class OfferController extends BaseController {
     });
   }
 
-  private async getOffers({ query: rawQuery }: GetOffersRequest) {
+  private async getOffers({ query: rawQuery, tokenPayload }: GetOffersRequest) {
     const { filter, query } = parseOffersQuery(rawQuery);
-    const result = await this.offerService.find(filter, query);
+    const result = await this.offerService.find(
+      filter,
+      query,
+      tokenPayload?.id,
+    );
     return result;
   }
 
@@ -215,12 +219,27 @@ export class OfferController extends BaseController {
     res: Response,
   ): Promise<void> {
     const { offerId } = params;
-    await Promise.all([
+
+    let error: HttpError | null = null;
+    const session = await mongoose.startSession();
+    session.startTransaction();
+    Promise.allSettled([
       this.offerService.deleteById(offerId),
       this.commentService.deleteByOfferId(offerId),
-    ]);
-
-    this.noContent(res);
+    ])
+      .then(() => session.commitTransaction())
+      .then(() => session.endSession())
+      .then(() => this.noContent(res))
+      .catch((err) => {
+        error = new HttpError(StatusCodes.INTERNAL_SERVER_ERROR, err);
+      })
+      .then(() => session.abortTransaction())
+      .then(() => session.endSession())
+      .then(() => {
+        if (error) {
+          throw error;
+        }
+      });
   }
 
   public async uploadImages(

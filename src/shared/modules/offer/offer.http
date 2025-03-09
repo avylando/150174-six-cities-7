@@ -7,6 +7,14 @@ Content-Type: application/json
 
 ###
 
+## Получить список детализированных предложений
+
+GET http://localhost:3456/offers/detailed HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
+
+###
+
 ## Получить список премиальных предложений в городе
 
 GET http://localhost:3456/offers/premium?city=Paris HTTP/1.1
@@ -18,7 +26,7 @@ Content-Type: application/json
 
 POST http://localhost:3456/offers HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMjY5MiwiZXhwIjoxNzE4Mzg1NDkyfQ.beBkeYbo3ZKk74mmxForZny6xNREar9VrLsPgod5jY4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
 
 {
   "name": "Предложение 1",
@@ -63,11 +71,11 @@ Content-Type: application/json
 
 PUT http://localhost:3456/offers/6669d93ca8badd79bee06c30 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMjY5MiwiZXhwIjoxNzE4Mzg1NDkyfQ.beBkeYbo3ZKk74mmxForZny6xNREar9VrLsPgod5jY4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
 
 {
   "price": 9999,
-  "city": "Amsterdam",
+  "city": "Paris",
   "housing": "apartment"
 }
 
@@ -77,7 +85,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Y
 
 POST http://localhost:3456/offers/6669d93ca8badd79bee06c30/preview  HTTP/1.1
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMjY5MiwiZXhwIjoxNzE4Mzg1NDkyfQ.beBkeYbo3ZKk74mmxForZny6xNREar9VrLsPgod5jY4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="previewUrl"; filename="image.png"
@@ -92,7 +100,7 @@ Content-Type: image/jpeg
 
 POST http://localhost:3456/offers/6669d93ca8badd79bee06c30/images  HTTP/1.1
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMjY5MiwiZXhwIjoxNzE4Mzg1NDkyfQ.beBkeYbo3ZKk74mmxForZny6xNREar9VrLsPgod5jY4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="images"; filename="image.png"
@@ -111,7 +119,6 @@ Content-Type: image/jpeg
 
 ## Удалить предложение
 
-DELETE http://localhost:3456/offers/66523434115ea323dacecd66 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMjY5MiwiZXhwIjoxNzE4Mzg1NDkyfQ.beBkeYbo3ZKk74mmxForZny6xNREar9VrLsPgod5jY4
-
+DELETE http://localhost:3456/offers/666da1e35d8775a75d179baf HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
 ###

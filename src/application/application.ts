@@ -79,6 +79,7 @@ class Application {
 
     this.logger.info('Initialize database…');
     await this.dbClient.connect();
+
     this.logger.info('Database initialized!');
 
     this.logger.info('Initialize server middleware…');

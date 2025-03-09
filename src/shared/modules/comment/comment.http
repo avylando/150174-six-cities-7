@@ -1,16 +1,16 @@
 # Комментарии
 ## Получить комментарии для предложения
 
-GET http://localhost:3456/offers/6669d93ca8badd79bee06c30/comments HTTP/1.1
+GET http://localhost:3456/offers/666da1e35d8775a75d179baf/comments HTTP/1.1
 Content-Type: application/json
 
 ###
 
 ## Cоздать новый комментарий для предложения
 
-POST http://localhost:3456/offers/6669d93ca8badd79bee06c30/comments HTTP/1.1
+POST http://localhost:3456/offers/666da1e35d8775a75d179baf/comments HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMDkzOSwiZXhwIjoxNzE4MzgzNzM5fQ.VkSTRPE2a1_D5anryJYiiOODbJpwnttuwHoh-McoNoo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxODQ2MDcxMCwiZXhwIjoxNzE4NjMzNTEwfQ.AN36lPXuNbekEAaDHdQBz2D4URWnOUHnJLsHFyXpEh4
 
 {
   "text": "Еще один комментарий...",

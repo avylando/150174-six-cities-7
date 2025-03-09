@@ -37,9 +37,6 @@ export class CommentEntity extends defaultClasses.TimeStamps {
   })
   public offerId: mongoose.Types.ObjectId;
 
-  @prop({ required: true, type: Array, default: [] })
-  public usersRatings: number[] = [];
-
   @prop({ type: Number, required: true })
   public rating: number;
 

@@ -5,7 +5,7 @@ POST http://localhost:3456/users/sign-up HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "ad@example.ru",
+  "email": "ads@example.ru",
   "password": "sample",
   "name": "Anatoly Dolgov",
   "type": "pro"
@@ -19,8 +19,8 @@ POST http://localhost:3456/users/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "ad@example.ru",
-  "password": "sample"
+  "email": "c@d.ru",
+  "password": "123456"
 }
 
 ###
@@ -29,7 +29,7 @@ Content-Type: application/json
 
 GET http://localhost:3456/users/login HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMDkzOSwiZXhwIjoxNzE4MzgzNzM5fQ.VkSTRPE2a1_D5anryJYiiOODbJpwnttuwHoh-McoNoo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
 
 ###
 
@@ -45,7 +45,7 @@ Content-Type: application/json
 
 POST http://localhost:3456/users/6669d150547cab664f97b853/avatar HTTP/1.1
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMDkzOSwiZXhwIjoxNzE4MzgzNzM5fQ.VkSTRPE2a1_D5anryJYiiOODbJpwnttuwHoh-McoNoo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="avatar"; filename="image.png"
@@ -60,21 +60,21 @@ Content-Type: image/png
 
 GET http://localhost:3456/users/favorites HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMDkzOSwiZXhwIjoxNzE4MzgzNzM5fQ.VkSTRPE2a1_D5anryJYiiOODbJpwnttuwHoh-McoNoo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
 
 ###
 
 ## Добавить предложение в избранное
 
-POST http://localhost:3456/users/favorites/6669df1a6be8c7d1f8a12375 HTTP/1.1
+POST http://localhost:3456/users/favorites/666dabf1702ff40ab85aa3b1 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMDkzOSwiZXhwIjoxNzE4MzgzNzM5fQ.VkSTRPE2a1_D5anryJYiiOODbJpwnttuwHoh-McoNoo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
 
 ###
 
 ## Удалить предложение из избранного
 
 DELETE http://localhost:3456/users/favorites/6669d3c3a594e890769db896 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkMTUwNTQ3Y2FiNjY0Zjk3Yjg1MyIsImVtYWlsIjoiYWRAZXhhbXBsZS5ydSIsIm5hbWUiOiJBbmF0b2x5IERvbGdvdiIsImlhdCI6MTcxODIxMDkzOSwiZXhwIjoxNzE4MzgzNzM5fQ.VkSTRPE2a1_D5anryJYiiOODbJpwnttuwHoh-McoNoo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY2NjlkM2MzYTU5NGU4OTA3NjlkYjg5NCIsImVtYWlsIjoiY0BkLnJ1IiwibmFtZSI6IkRlYW4gV2luY2hlc3RlciIsImlhdCI6MTcxOTE4MDE1OCwiZXhwIjoxNzE5MzUyOTU4fQ.nhZlZe38BBj6b0tgUFYQT5_5huSsCd-KCs0gofpeBBc
 
 ###

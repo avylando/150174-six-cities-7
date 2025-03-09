@@ -24,6 +24,7 @@ interface OfferService extends DocumentExists, DocumentOwner {
   find(
     filter: OffersFindFilterParams,
     query: OffersFindQueryParams,
+    userId?: string,
   ): Promise<DocumentType<OfferEntity>[]>;
   updateById(
     offerId: string,
